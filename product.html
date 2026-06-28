@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Details</title>
 
 <style>
@@ -97,11 +98,9 @@ Bazaar Xpress
 
 <br><br>
 
-<a href="cart.html">
-<button class="cart">
+<button class="cart" onclick="addToCart()">
 Add to Cart
 </button>
-</a>
 
 <a href="cart.html">
 <button class="buy">
@@ -111,5 +110,23 @@ Buy Now
 
 </div>
 
+<script>
+
+function addToCart(){
+
+const product={
+name:"iPhone 15",
+price:"69999",
+image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"
+};
+
+localStorage.setItem("cart",JSON.stringify(product));
+
+window.location.href="cart.html";
+
+}
+
+</script>
+
 </body>
-  </html>
+</html>
