@@ -84,6 +84,7 @@ src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
 </div>
 
 </div>
+
 <div class="container">
 
 <h2>Featured Products</h2>
@@ -98,40 +99,8 @@ src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
 
 </div>
 
-<script src="products.js"></script>
+<script type="module" src="products.js"></script>
 <script src="app.js"></script>
-
-<script>
-
-let html="";
-
-products.forEach(function(product){
-
-html += `
-<div class="card">
-
-<img src="${product.image}">
-
-<h2>${product.name}</h2>
-
-<p>${product.description}</p>
-
-<div class="price">
-₹${product.price}
-</div>
-
-<button onclick="location.href='product.html'">
-View Product
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById("productList").innerHTML = html;
-
-</script>
 
 </body>
 </html>
