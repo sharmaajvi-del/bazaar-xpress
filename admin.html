@@ -39,6 +39,7 @@ margin:10px 0;
 border:1px solid #ccc;
 border-radius:6px;
 box-sizing:border-box;
+font-size:16px;
 }
 
 button{
@@ -50,6 +51,10 @@ font-size:18px;
 border:none;
 border-radius:8px;
 cursor:pointer;
+}
+
+button:hover{
+background:#0a8a0a;
 }
 </style>
 
@@ -65,24 +70,27 @@ Bazaar Xpress Admin
 
 <h2>Add Product</h2>
 
-<input type="text" placeholder="Product Name">
+<input type="text" id="productName" placeholder="Product Name">
 
-<input type="number" placeholder="Price">
+<input type="number" id="productPrice" placeholder="Price">
 
-<select>
+<select id="productCategory">
 <option>Mobile</option>
 <option>Electronics</option>
 <option>Fashion</option>
 <option>Home & Kitchen</option>
 </select>
 
-<textarea placeholder="Product Description"></textarea>
+<textarea id="productDescription" placeholder="Product Description"></textarea>
 
-<input type="file" multiple>
+<input type="file" id="productImage" multiple>
 
-<button>Save Product</button>
+<button id="saveProduct">Save Product</button>
 
 </div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="admin.js"></script>
 
 </body>
 </html>
