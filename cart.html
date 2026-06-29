@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shopping Cart</title>
 
 <style>
 body{
-font-family:Arial;
+font-family:Arial,sans-serif;
 background:#f5f5f5;
 margin:0;
 }
@@ -39,6 +39,7 @@ border-radius:10px;
 font-size:26px;
 color:green;
 font-weight:bold;
+margin:10px 0;
 }
 
 .total{
@@ -75,17 +76,27 @@ color:white;
 🛒 Bazaar Xpress Cart
 </div>
 
+<div id="cartArea"></div>
+
+<script>
+
+let product=JSON.parse(localStorage.getItem("cart"));
+
+if(product){
+
+document.getElementById("cartArea").innerHTML=`
+
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600">
+<img src="${product.image}">
 
-<h2>iPhone 15</h2>
+<h2>${product.name}</h2>
 
 <div class="price">
-₹69,999
+₹${product.price}
 </div>
 
-<button class="remove">
+<button class="remove" onclick="removeCart()">
 Remove
 </button>
 
@@ -94,16 +105,38 @@ Remove
 <div class="card">
 
 <div class="total">
-Total : ₹69,999
+Total : ₹${product.price}
 </div>
 
 <a href="login.html">
+
 <button class="checkout">
+
 Proceed To Checkout
+
 </button>
+
 </a>
 
 </div>
+
+`;
+
+}else{
+
+document.getElementById("cartArea").innerHTML="<h2 style='text-align:center'>🛒 Your Cart is Empty</h2>";
+
+}
+
+function removeCart(){
+
+localStorage.removeItem("cart");
+
+location.reload();
+
+}
+
+</script>
 
 </body>
 </html>
