@@ -1,90 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bazaar Xpress</title>
 
-<style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f5f5;
-}
-
-header{
-background:#0b3d91;
-color:white;
-padding:15px;
-text-align:center;
-font-size:30px;
-font-weight:bold;
-}
-
-.tagline{
-font-size:15px;
-margin-top:5px;
-}
-
-.search{
-padding:15px;
-background:white;
-}
-
-.search input{
-width:100%;
-padding:12px;
-font-size:16px;
-border-radius:8px;
-border:1px solid #ccc;
-box-sizing:border-box;
-}
-
-.banner{
-background:#ff9800;
-color:white;
-text-align:center;
-padding:18px;
-font-size:24px;
-font-weight:bold;
-}
-
-.section{
-padding:15px;
-}
-
-.section h2{
-margin-bottom:15px;
-}
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.category{
-background:white;
-border-radius:10px;
-padding:15px;
-text-align:center;
-box-shadow:0 2px 8px rgba(0,0,0,.15);
-cursor:pointer;
-}
-
-.category img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:8px;
-}
-
-.category h3{
-margin-top:10px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -102,7 +25,10 @@ India's Trusted Online Bazaar
 
 <div class="search">
 
-<input type="text" placeholder="Search Products...">
+<input
+type="text"
+id="searchBox"
+placeholder="Search Products...">
 
 </div>
 
@@ -112,40 +38,100 @@ India's Trusted Online Bazaar
 
 </div>
 
-<div class="section">
+<div class="container">
 
 <h2>Shop By Category</h2>
 
 <div class="category-grid">
-  <div class="category" onclick="location.href='mobile.html'"
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600">
+
+<div class="category"
+onclick="location.href='mobile.html'">
+
+<img
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600">
+
 <h3>Mobile Phones</h3>
+
 </div>
 
-<div class="category" onclick="alert('Home & Kitchen page coming soon!')">
-<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600">
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600">
+
 <h3>Home & Kitchen</h3>
+
 </div>
 
-<div class="category" onclick="alert('Fashion page coming soon!')">
-<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600">
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600">
+
 <h3>Fashion</h3>
+
 </div>
 
-<div class="category" onclick="alert('Electronics page coming soon!')">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
+<div class="category">
+
+<img
+src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
+
 <h3>Electronics</h3>
+
+</div>
+
 </div>
 
 </div>
-  </div>
-  <script>
+<div class="container">
 
-function searchProducts(){
+<h2>Featured Products</h2>
 
-}
+<div id="productList"></div>
+
+</div>
+
+<div class="footer">
+
+© 2026 Bazaar Xpress | India's Trusted Online Bazaar
+
+</div>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
+
+<script>
+
+let html="";
+
+products.forEach(function(product){
+
+html += `
+<div class="card">
+
+<img src="${product.image}">
+
+<h2>${product.name}</h2>
+
+<p>${product.description}</p>
+
+<div class="price">
+₹${product.price}
+</div>
+
+<button onclick="location.href='product.html'">
+View Product
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("productList").innerHTML = html;
 
 </script>
 
 </body>
-  </html>
+</html>
